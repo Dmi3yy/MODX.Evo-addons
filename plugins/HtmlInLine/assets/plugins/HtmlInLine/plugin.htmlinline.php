@@ -11,14 +11,13 @@
 *
 */
 /*************************************/
-//author Borisov Evgeniy aka Agel Nash (agel-nash@xaker.ru)
 
 $e =&$modx->event;
 switch ($e->name) {
     case "OnWebPagePrerender":{
         if($modx->documentObject['searchable']==1){
             $content = $modx->documentOutput;
-			$content = preg_replace('//(.+?)[^">]$','/*\1*/ ',$content 
+	    $content = preg_replace('//(.+?)[^">]$','/*\1*/ ',$content 
             $content= preg_replace('|\s+|', ' ', $content);
             $modx->documentOutput = $content;
         }
